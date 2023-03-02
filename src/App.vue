@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-            title: "hello"
+            title: "riprova"
         }
     }
 }
