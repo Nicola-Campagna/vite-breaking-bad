@@ -11,6 +11,9 @@
 // IMPORTIAMO AXIOS
 import axios from 'axios'
 
+// importiamo charactercard
+import CharacterCard from './CharacterCard.vue';
+
 
 export default {
     data() {
@@ -22,6 +25,7 @@ export default {
 
     components: {
         //   MyComponent,
+        CharacterCard,
     },
 
     created() {
@@ -42,15 +46,9 @@ export default {
     <div class="container-lg bg-light p-4">
         <h2 class="bg-dark text-white m-0">Found n° cards</h2>
         <div class="row row-cols-lg-5 row-cols-md-3 row-cols-s-2">
-            <!-- ciclo per prendere i personaggi  -->
-            <div class="col text-center my-2" v-for="character in characters">
-                <!-- img dei personaggi -->
-                <img :src="character.card_images[0].image_url" alt="" class="img-fluid">
-                <!-- nomi dei personaggi -->
-                <h3 class="text-white bg-orange m-0 p-0">{{ character.name }}</h3>
-                <!-- tipo di personaggi -->
-                <p class="bg-orange m-0 p-0">{{ character.archetype }}</p>
-            </div>
+            <!-- ciclo per prendere i personaggi ...metodo props (passaggio di info di padre in figlio(CharacterCard))  -->
+            <CharacterCard v-for="character in characters" :key="character.id" :pic="character.card_images[0].image_url"
+                :name="character.name" :type="character.archetype" />
         </div>
     </div>
 </template>
