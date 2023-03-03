@@ -1,17 +1,16 @@
 <script>
+
 export default {
-    data() {
-        return {
-            title: "riprova"
-        }
+  data() {
+    return {
     }
-}
+  },
 
+  components: {
+  },
+};
 </script>
-<template>
-    <h1 class="text-center">{{ title }}</h1>
-</template>
+
+<template></template>
+
 <style lang="scss"></style>
-
-
-
