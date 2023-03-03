@@ -8,15 +8,23 @@
 <script>
 // import MyComponent from "./components/MyComponent.vue";
 
+// IMPORTIAMO AXIOS
+import axios from 'axios'
+
+
 export default {
     data() {
         return {
         }
-    }
+    },
 
-    // components: {
-    //   MyComponent,
-    // },
+    components: {
+        //   MyComponent,
+    },
+
+    created() {
+        // console.log(axios)
+    }
 };
 </script>
 
