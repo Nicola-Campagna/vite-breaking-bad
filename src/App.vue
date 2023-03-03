@@ -4,10 +4,18 @@
 import AppHeader from "./components/AppHeader.vue"
 import AppMain from "./components/AppMain.vue"
 
+// axios
+import axios from 'axios'
+
+// store.js
+import { store } from "./data/store"
+
+
 
 export default {
   data() {
     return {
+      store,
     }
   },
 
@@ -17,6 +25,35 @@ export default {
     AppMain,
 
   },
+
+  created() {
+    // console.log(axios)
+
+    store.isLoading = true;
+
+    axios
+      // get() esegue la richiesta
+      .get(store.endpoint)
+
+      // then()  mostra solo se corretta
+      .then((response) => {
+        console.log(response);
+        store.characters = response.data.data//collegamento per arrivare all'array dei personaggi
+
+      })
+
+      // catch ci mostrasolo che c'è un errore
+      .catch((error) => {
+        store.characters = [];
+        console.log(error)
+      })
+
+      // finally in ogni caso mostra qualcosa
+      .finally(() => {
+        store.isLoading = false;
+      })
+
+  }
 };
 </script>
 
