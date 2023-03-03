@@ -1,6 +1,9 @@
 <script>
-// importiamo i file di altri componenti
+// importiamo i file di altri componenti:
+
 import AppHeader from "./components/AppHeader.vue"
+import AppMain from "./components/AppMain.vue"
+
 
 export default {
   data() {
@@ -9,8 +12,9 @@ export default {
   },
 
   components: {
-    // dichiarare i componenti che importiamo
+    // registriamo i componenti che importiamo
     AppHeader,
+    AppMain,
 
   },
 };
@@ -30,8 +34,7 @@ export default {
 
   <!-- MAIN -->
   <main>
-    <div class="container-fluid bg-orange">
-    </div>
+    <AppMain />
 
   </main>
 </template>
