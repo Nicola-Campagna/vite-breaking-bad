@@ -1,0 +1,6 @@
+// use per usare le variabili in style
+@use "../partials/variables" as *;
+
+.bg-orange {
+    background-color: $bg-1
+}
