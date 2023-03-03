@@ -18,7 +18,7 @@ export default {
 
 <template>
     <main>
-        <div class="container">
+        <div class="container-fluid bg-orange">
             <CharactersList />
         </div>
     </main>
