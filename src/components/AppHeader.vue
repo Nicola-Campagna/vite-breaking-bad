@@ -7,10 +7,6 @@ export default {
             title: "YU-GI-OH Api"
         }
     }
-
-    // components: {
-    //   MyComponent,
-    // },
 };
 </script>
 
