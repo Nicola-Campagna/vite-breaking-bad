@@ -18,7 +18,9 @@ export default {
 
 <template>
     <main>
-        <CharactersList />
+        <div class="container">
+            <CharactersList />
+        </div>
     </main>
 </template>
 

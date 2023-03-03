@@ -34,7 +34,9 @@ export default {
 
   <!-- MAIN -->
   <main>
-    <AppMain />
+    <div class="container">
+      <AppMain />
+    </div>
 
   </main>
 </template>
