@@ -9,7 +9,8 @@ import axios from 'axios'
 
 // store.js
 import { store } from "./data/store"
-
+// basepagination
+import BasePagination from "./components/BasePagination.vue"
 
 
 export default {
@@ -23,6 +24,7 @@ export default {
     // registriamo i componenti che importiamo
     AppHeader,
     AppMain,
+    BasePagination
 
   },
 
@@ -56,7 +58,16 @@ export default {
         .finally(() => {
           store.isLoading = false;
         })
-    }
+
+    },
+
+    fetchPrevPage() {
+      this.fetchCharacters(store.pages.prev)
+    },
+
+    fetchNextPage() {
+      this.fetchCharacters(store.pages.next)
+    },
   },
 
   created() {
@@ -79,18 +90,13 @@ export default {
 
   <!-- MAIN -->
   <main>
-    <!-- da mettere in un componente a se -->
-    <nav class="d-flex justify-content-center py-5 bg-dark" aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item" v-if="store.pages.prev" @click="fetchCharacters(store.pages.prev)"><a class="page-link"
-            href="#">Previous</a></li>
-        <li class="page-item" v-if="store.pages.next" @click="fetchCharacters(store.pages.next)"><a class="page-link"
-            href="#">Next</a></li>
-      </ul>
-    </nav>
 
 
+    <!-- includere BasePagination -->
+    <BasePagination :showNext="store.pages.next > 0" :showPrev="store.pages.prev > 0" @click-prev="fetchPrevPage"
+      @click-next="fetchNextPage" />
     <AppMain />
+
 
   </main>
 </template>
