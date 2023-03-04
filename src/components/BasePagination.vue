@@ -20,7 +20,7 @@ export default {
         showPrev: Boolean,
         showNext: Boolean,
     },
-    emits: ["click-prev", "click-next"]
+    emits: ["change-page"]
 
 };
 </script>
@@ -28,16 +28,16 @@ export default {
 <!-- fetchCharacters(store.pages.next)" -->
 <template>
     <!-- spostare navbar qui  -->
-    <nav class="d-flex justify-content-center py-5 bg-dark" aria-label="Page navigation example">
+    <nav class="d-flex justify-content-center py-5" aria-label="Page navigation example">
         <ul class="pagination">
-
+            <li>ok</li>
             <!-- BTN PREV -->
-            <li class="page-item" v-if="showPrev" @click="$emit('click-prev')">
-                <a class="page-link" href="#">Preius</a>
+            <li v-if="showPrev" @click="$emit('change-page', 'prev')">
+                <a href="#">Preius</a>
             </li>
 
             <!-- BTN NEXT -->
-            <li class="page-item" v-if="showNext" @click="$emit('click-next')"><a class="page-link" href="#">Next</a>
+            <li v-if="showNext" @click="$emit('change-page', 'next')"><a href="#">Next</a>
             </li>
         </ul>
     </nav>

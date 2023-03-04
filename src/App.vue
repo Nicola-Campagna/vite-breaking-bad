@@ -61,13 +61,17 @@ export default {
 
     },
 
-    fetchPrevPage() {
-      this.fetchCharacters(store.pages.prev)
+    fetchPage(direction) {
+      if (direction == 'next') {
+        this.fetchCharacters(store.pages.next)
+      }
+      if (direction == 'prev') {
+        this.fetchCharacters(store.pages.prev)
+      }
+
     },
 
-    fetchNextPage() {
-      this.fetchCharacters(store.pages.next)
-    },
+
   },
 
   created() {
@@ -93,8 +97,8 @@ export default {
 
 
     <!-- includere BasePagination -->
-    <BasePagination :showNext="store.pages.next > 0" :showPrev="store.pages.prev > 0" @click-prev="fetchPrevPage"
-      @click-next="fetchNextPage" />
+    <BasePagination :showNext="store.pages.next > 0" :showPrev="store.pages.prev > 0" @click-prev="fetchPage"
+      @change-page="fetchPage" />
     <AppMain />
 
 
